@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "compile": "tsc",
-    "start": "npm run compile && node ./dist/app.js",
-    "dev": "node ./dist/app.js"
+    "start": "npm run compile && node ./dist/index.js",
+    "dev": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",

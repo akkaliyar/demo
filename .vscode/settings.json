@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c97cbd06-2cdc-46cb-a149-897c1b31cb8f/resourceGroups/demoGraphql/providers/Microsoft.Web/sites/testnodejsapis",
+    "appService.deploySubpath": "."
+}

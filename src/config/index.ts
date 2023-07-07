@@ -6,7 +6,8 @@ const CONFIG = Object({
     MONGO_DB: process.env.MONGO_DB || "class-mng",
     CONNECTION_PORT: process.env.CONNECTION_PORT || 3000,
     MONGO_URI() {
-        return this.MONGO_HOST + this.MONGO_DB
+        //return this.MONGO_HOST + this.MONGO_DB
+        return "mongodb://akhil:aohANHXUBx6kHWZkNeIfYkshW8QBj6t0eH2sNLJ7JgTrzuUUiRfrFuJRZExnclkipLQYWbH3JmulACDboBzL0w%3D%3D@akhil.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@akhil@";
     }
 })
 export default CONFIG;

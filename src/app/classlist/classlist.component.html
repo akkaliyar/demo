@@ -1,0 +1,36 @@
+<div class="browse">
+    <h1>Class List</h1>
+    <form class="row g-3">
+        <div class="col-auto">
+          <input type="text" [(ngModel)]="selectedclass" name="txtSearch" class="input" id="txtSearch" placeholder="Search By Name">
+          <button type="submit" class="btn btn-primary mb-3 submit-button" (click)="searchByclass()">Search</button>
+        </div>
+      </form>
+    <div *ngIf="loading">Loading...</div>
+    <table *ngIf="!loading">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Head</th>
+        <th scope="col">Floor</th>
+        <th scope="col">Action</th>
+      </tr>
+      <tr *ngFor="let class of allclass">
+        <td>{{ class.id }}</td>
+        <td>{{ class.name }}</td>
+        <td>{{ class.head }}</td>
+        <td>{{ class.floor }}</td>
+        <td class="button-gap">
+          <button class="edit-button" (click)="editClass(class.id)">Edit</button>
+          <button class="delete-button" (click)="deleteClass(class.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+    <div class="pager">
+      <button class="prev" *ngIf="showPrevious()" (click)="onPrevious()"> prev </button>
+      <button class="next" *ngIf="showNext()" (click)="onNext()"> next </button>
+    </div>
+  </div>
+  

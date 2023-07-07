@@ -1,0 +1,39 @@
+<div class="browse">
+  <h1>Student List</h1>
+  <form class="row g-3">
+    <div class="col-auto">
+      <input type="text" [(ngModel)]="selectedStudent" name="txtSearch" class="input" id="txtSearch" placeholder="Search">
+      <button type="submit" class="btn btn-primary mb-3 submit-button" (click)="searchBystudent()">Search</button>
+    </div>
+  </form>
+  <div *ngIf="loading">Loading...</div>
+  <table *ngIf="!loading">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Class</th>
+      <th scope="col">Name</th>
+      <th scope="col">Roll No</th>
+      <th scope="col">Father</th>
+      <th scope="col">Address</th>
+      <th scope="col">Action</th>
+    </tr>
+    <tr *ngFor="let student of allStudent">
+      <td>{{ student.id }}</td>
+      <td>{{student.class.name}}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.roll }}</td>
+      <td>{{ student.father }}</td>
+      <td>{{ student.address }}</td>
+      <td class="button-gap">
+        <button class="edit-button" (click)="editStudent(student.id)">Edit</button>
+        <button class="delete-button" (click)="deleteStudent(student.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+  <div class="pager">
+    <button class="prev" *ngIf="showPrevious()" (click)="onPrevious()"> prev </button>
+    <button class="next" *ngIf="showNext()" (click)="onNext()"> next </button>
+  </div>
+</div>

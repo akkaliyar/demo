@@ -1,0 +1,65 @@
+<div class="main">
+    <h3>{{studentid?'Edit Student':'Add Student'}}</h3>
+    <div *ngIf="error" class="error">
+      <p>{{ error }}</p>
+    </div>
+    <div *ngIf="success" class="success">
+      <p>{{ success }}</p>
+    </div>
+    <form class="form" [formGroup]="studentForms" (ngSubmit)="studentid?updateStudent(studentid):addStudent()">
+      <div class="input-form">
+        <select class="input" [(ngModel)]="student.classId" name="classId" formControlName="classId">
+          <option [value]="''" >Select Class*</option>
+          <option *ngFor="let class of AllClass" [value]="class.id" (click)="$event.stopPropagation()">
+             {{ class.name }}
+          </option>
+        </select>
+        <div *ngIf="studentForms.controls['classId'].invalid && (studentForms.controls['classId'].dirty ||studentForms.controls['classId'].touched)" class="alert">
+          <span *ngIf="studentForms.controls['classId'].errors">
+            Please select class
+          </span>
+        </div>
+      </div>
+      <div class="input-form">
+        <input class="input" type="text" [(ngModel)]="student.name" name="name" placeholder="Enter Name*" formControlName="name"/>
+        <div *ngIf="studentForms.controls['name'].invalid && (studentForms.controls['name'].dirty ||studentForms.controls['name'].touched)" class="alert">
+          <span *ngIf="studentForms.controls['name'].errors">
+          Please Enter Name
+        </span>
+      </div>
+      </div>
+      <div class="input-form">
+        <input class="input" type="text" [(ngModel)]="student.address" name="address"  placeholder="Enter Address*"  formControlName="address"/>
+        <div *ngIf="studentForms.controls['address'].invalid && (studentForms.controls['address'].dirty || studentForms.controls['address'].touched)" class="alert">
+            <span *ngIf="studentForms.controls['address'].errors">
+            Please Enter Address
+          </span>
+        </div>
+      </div>
+      <div class="input-form">
+        <input class="input" type="number" [(ngModel)]="student.roll" name="roll"   placeholder="Enter roll*"  formControlName="roll"/>
+        <div *ngIf="studentForms.controls['roll'].invalid && (studentForms.controls['roll'].dirty || studentForms.controls['roll'].touched)" class="alert">
+            <span *ngIf="studentForms.controls['roll'].errors">
+            Please Enter Roll No
+          </span>
+        </div>
+      </div>
+      <div class="input-form">
+        <input class="input" type="text" [(ngModel)]="student.father" name="father"  placeholder="Enter father*"  formControlName="father"/>
+        <div *ngIf="studentForms.controls['father'].invalid && (studentForms.controls['father'].dirty || studentForms.controls['father'].touched)" class="alert">
+            <span *ngIf="studentForms.controls['father'].errors">
+            Please Enter Father Name
+          </span>
+        </div>
+      </div>
+      <div class="input-form">
+        <input class="input" type="date" [ngModel]="student.dob | date:'yyyy-MM-dd'"   name="dob"  placeholder="Enter dob* "  formControlName="dob"/>
+        <div *ngIf="studentForms.controls['dob'].invalid && (studentForms.controls['dob'].dirty || studentForms.controls['dob'].touched)" class="alert">
+            <span *ngIf="studentForms.controls['dob'].errors">
+            Please Enter Dob
+          </span>
+        </div>
+      </div>
+      <button class="submit-button" >SUBMIT</button>
+    </form>
+</div>

@@ -1,0 +1,36 @@
+<div class="main">
+    <h3>{{classid?'Edit Class':'Add Class'}}</h3>
+    <div *ngIf="error" class="error">
+      <p>{{ error }}</p>
+    </div>
+    <div *ngIf="success" class="success">
+      <p>{{ success }}</p>
+    </div>
+    <form class="form" [formGroup]="classForms" (ngSubmit)="classid?updateClass(classid):addClass()">
+      <div class="input-form">
+        <input class="input" type="text" [(ngModel)]="student.name" name="name" placeholder="Enter Name*" formControlName="name"/>
+        <div *ngIf="classForms.controls['name'].invalid && (classForms.controls['name'].dirty ||classForms.controls['name'].touched)" class="alert">
+          <span *ngIf="classForms.controls['name'].errors">
+          Please Enter Name
+        </span>
+      </div>
+      </div>
+      <div class="input-form">
+        <input class="input" type="text" [(ngModel)]="student.head" name="address"  placeholder="Enter Head*"  formControlName="head"/>
+        <div *ngIf="classForms.controls['head'].invalid && (classForms.controls['head'].dirty || classForms.controls['head'].touched)" class="alert">
+            <span *ngIf="classForms.controls['head'].errors">
+            Please Enter Head
+          </span>
+        </div>
+      </div>
+      <div class="input-form">
+        <input class="input" type="text" [(ngModel)]="student.floor" name="floor"   placeholder="Enter Floor*"  formControlName="floor"/>
+        <div *ngIf="classForms.controls['floor'].invalid && (classForms.controls['floor'].dirty || classForms.controls['floor'].touched)" class="alert">
+            <span *ngIf="classForms.controls['floor'].errors">
+            Please Enter Floor
+          </span>
+        </div>
+      </div>
+      <button class="submit-button" >SUBMIT</button>
+    </form>
+</div>

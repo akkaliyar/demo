@@ -1,22 +1,15 @@
 {
-  "name": "demo_api",
+  "name": "testdemo",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
-    "compile": "tsc",
-    "start": "npm run compile && node ./dist/app.js",
-    "dev": "node ./dist/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "keywords": [],
+  "description": "",
   "dependencies": {
-    "@apollo/server": "^4.7.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "graphql": "^16.7.1",
-    "mongoose": "^7.3.2"
-  },
-  "description": ""
+    "express": "^4.18.2"
+  }
 }
